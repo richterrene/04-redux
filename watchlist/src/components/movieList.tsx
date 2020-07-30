@@ -30,7 +30,7 @@ const mapStateToProps = (state: State): StateProps => ({
     movies: state.movies
 });
 
-const dispatchToProps = {
+const dispatchToProps: DispatchProps = {
     toggleMovieAsWatched
 };
 

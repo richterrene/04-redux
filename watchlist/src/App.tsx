@@ -12,10 +12,6 @@ interface Properties {
 }
 class App extends React.Component<Properties> {
 
-    componentDidMount(): void {
-        this.props.loadMovies();
-    }
-
     public render() {
         return (
             <div className="container">

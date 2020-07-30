@@ -7,8 +7,11 @@ import registerServiceWorker from './registerServiceWorker';
 import {applyMiddleware, createStore} from 'redux';
 import {reducer} from "./reducer";
 import {Provider} from "react-redux";
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(reducer, composeWithDevTools(
+    applyMiddleware(thunk)
+));
 
 ReactDOM.render(
     <Provider store={store}>

@@ -1,9 +1,9 @@
 import {createStore} from "redux"
-import {addMovie, reducer} from "./reducer";
+import {addMovie, reducer} from "../reducer";
 import React from "react";
 import {Provider} from "react-redux";
-import {fireEvent, render} from "@testing-library/react";
-import App from "./App";
+import {render, fireEvent} from "@testing-library/react";
+import AddMovie from "./addMovie";
 
 
 describe("Add movie", () => {
@@ -13,15 +13,15 @@ describe("Add movie", () => {
         store.dispatch(addMovie("Terminator"))
         store.dispatch(addMovie("Rombo"))
 
-        const {getByRole } = render(
+        const { getByRole } =  render(
             <Provider store={store}>
-                <App/>
+                <AddMovie />
             </Provider>
         );
 
         fireEvent.change(getByRole('textbox'), {value: "Rombo"})
         fireEvent.click(getByRole('button'))
 
-        expect(store.getState().movies.find((movie) => movie.name == "Rombo")).toBeDefined()
+        expect(store.getState().movies.find((movie) => movie.name == "Rombo" )).toBeDefined()
     })
 })
